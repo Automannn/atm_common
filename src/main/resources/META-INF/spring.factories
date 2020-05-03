@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.automannn.common.web.config.AtmBaseControllerAutoConfig,\
+com.automannn.common.web.config.AtmWebMvcConfigure,\
+com.automannn.common.web.config.AtmErrorMvcAutoConfiguration
