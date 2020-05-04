@@ -7,10 +7,13 @@
     <groupId>com.automannn.common</groupId>
     <artifactId>atm_common</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1-RELEASE</version>
+    <version>0.0.2-RELEASE</version>
 
     <properties>
-        <distributionManagement.directory.name>atm_common_util</distributionManagement.directory.name>
+        <distributionManagement.directory.name>atm_common</distributionManagement.directory.name>
+
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -32,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR3</version>
+                <version>Finchley.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -40,7 +43,7 @@
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
-                <version>Cairo-SR8</version>
+                <version>Cairo-RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
