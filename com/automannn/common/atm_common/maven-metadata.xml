@@ -3,10 +3,10 @@
   <groupId>com.automannn.common</groupId>
   <artifactId>atm_common</artifactId>
   <versioning>
-    <release>0.0.6-RELEASE</release>
+    <release>0.0.7-RELEASE</release>
     <versions>
-      <version>0.0.6-RELEASE</version>
+      <version>0.0.7-RELEASE</version>
     </versions>
-    <lastUpdated>20200504065655</lastUpdated>
+    <lastUpdated>20200504074018</lastUpdated>
   </versioning>
 </metadata>
