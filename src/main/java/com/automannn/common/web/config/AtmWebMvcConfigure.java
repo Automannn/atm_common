@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.lang.NonNull;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -33,7 +35,21 @@ public class AtmWebMvcConfigure implements WebMvcConfigurer {
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(FastJsonConverterFactory.getFastJsonConverter(fastJsonProperties));
+        int index = converters.size();
+
+        for(int i = 0; i < converters.size(); ++i) {
+            HttpMessageConverter<?> httpMessageConverter = (HttpMessageConverter)converters.get(i);
+            if (httpMessageConverter instanceof MappingJackson2HttpMessageConverter && i < index) {
+                index =i;
+                converters.remove(i);
+            }
+
+            if (httpMessageConverter instanceof GsonHttpMessageConverter && i < index) {
+                index = i;
+                converters.remove(i);
+            }
+        }
+        converters.add(index==converters.size()?index-1:index,FastJsonConverterFactory.getFastJsonConverter(fastJsonProperties));
     }
 
     @Override

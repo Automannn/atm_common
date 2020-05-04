@@ -36,19 +36,19 @@ public class JsonFactory {
         if (data == null) {
             return null;
         } else {
-            String reDate = StringUtils.replace(data, "\\", "\\\\");
-            reDate = StringUtils.replace(reDate, "\r", "\\\\r");
-            reDate = StringUtils.replace(reDate, "\t", "\\\\t");
-            reDate = StringUtils.replace(reDate, "\b", "\\\\b");
-            reDate = StringUtils.replace(reDate, "\f", "\\\\f");
-            reDate = StringUtils.replace(reDate, "\n", "\\\\n");
-            reDate = StringUtils.replace(reDate, "\"", "\\\"");
-            return reDate;
+            String reData = StringUtils.replace(data, "\\", "\\\\");
+            reData = StringUtils.replace(reData, "\r", "\\\\r");
+            reData = StringUtils.replace(reData, "\t", "\\\\t");
+            reData = StringUtils.replace(reData, "\b", "\\\\b");
+            reData = StringUtils.replace(reData, "\f", "\\\\f");
+            reData = StringUtils.replace(reData, "\n", "\\\\n");
+            reData = StringUtils.replace(reData, "\"", "\\\"");
+            return reData;
         }
     }
 
     static {
-        SimpleDateFormatSerializer dateFormat = new SimpleDateFormatSerializer("yyyy-MM-dd");
+        SimpleDateFormatSerializer dateFormat = new SimpleDateFormatSerializer("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormatSerializer dateTimeFormat = new SimpleDateFormatSerializer("yyyy-MM-dd HH:mm:ss");
         config.put(Date.class, dateFormat);
         config.put(Timestamp.class, dateTimeFormat);
