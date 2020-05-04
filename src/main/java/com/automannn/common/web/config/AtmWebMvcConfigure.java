@@ -1,9 +1,13 @@
 package com.automannn.common.web.config;
 
+import com.automannn.common.web.configProperties.FastJsonProperties;
 import com.automannn.common.web.interceptor.ResultBeanInterceptor;
+import com.automannn.common.web.util.FastJsonConverterFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.lang.NonNull;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -13,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,6 +26,15 @@ import java.util.concurrent.TimeUnit;
  */
 @Configuration
 public class AtmWebMvcConfigure implements WebMvcConfigurer {
+
+    @Autowired
+    private FastJsonProperties fastJsonProperties;
+
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(FastJsonConverterFactory.getFastJsonConverter(fastJsonProperties));
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
